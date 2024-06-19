@@ -1,0 +1,13 @@
+1: SELECT id FROM students WHERE date_of_birth BETWEEN '1990-01-01' AND '1990-12-31';
+
+2: SELECT id FROM courses WHERE cfu>10;
+3:SELECT id FROM students WHERE DATEDIFF(CURDATE(), date_of_birth) / 365.25 >= 30;
+4:SELECT id FROM courses WHERE year = 1 AND period = 'I semestre';
+5:SELECT id FROM exams WHERE date = '2020-06-20' AND hour > '14:00:00';
+6:SELECT id FROM degrees WHERE name LIKE '%magistrale%';
+7:SELECT COUNT(*) AS n_dipartimenti FROM departments;
+8:SELECT count(*) AS prof_no_number FROM `teachers` WHERE phone IS NULL;
+9:INSERT INTO students (name, surname, date_of_birth,fiscal_code, enrolment_date,registration_number,email,degree_id)
+VALUES ('khalil','sidane','17/6/2001','JSFBIGBEUKAGBEUYRWR','1990/01/01','620346','gigio@gmail.com',FLOOR(1 + RANDOM() * 30));   || DA RIVEDERE
+10:UPDATE teachers SET office_number=126 WHERE name='pietro' AND surname='Rizzo';
+11:DELETE FROM students WHERE name='khalil' AND surname='sidane';
