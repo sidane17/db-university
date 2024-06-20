@@ -1,0 +1,24 @@
+								GROUP BY
+
+
+1: SELECT YEAR(enrolment_date) AS anno_iscrizine , COUNT(*) AS numero_iscritti FROM students GROUP BY YEAR(enrolment_date);
+2: SELECT office_address, COUNT(*) AS profNelloStessoEdificio FROM teachers GROUP BY office_address; 
+3: SELECT a.course_id,AVG(v.vote) as media_voti FROM exams a JOIN exam_student v ON a.course_id=v.exam_id GROUP BY a.course_id;
+4:SELECT d.name AS dipartimento, COUNT(deg.id) AS numero_corsi FROM departments d JOIN degrees deg ON d.id = deg.department_id GROUP BY d.name ORDER BY numero_corsi DESC;
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+								JOIN
+
+1: SELECT a.name , a.surname FROM students a JOIN degrees deg ON a.degree_id = deg.id WHERE deg.name= 'Corso di Laurea in Economia';
+
+2: SELECT a.name, b.name FROM degrees a JOIN departments b ON a.department_id = b.id WHERE a.name LIKE '%magistrale%' AND b.name='Dipartimento di Neuroscienze';
+
+3:SELECT a.name FROM courses a JOIN course_teacher b ON a.id = b.course_id WHERE b.teacher_id=44;
+
+4:SELECT a.*,b.name,c.name FROM students a JOIN degrees b ON a.degree_id = b.id JOIN departments c ON b.department_id=c.id ORDER BY a.name,a.surname;
+
+5:SELECT a.name,b.name,d.name,d.surname FROM degrees a JOIN courses b ON a.id = b.degree_id JOIN course_teacher c ON b.id=c.course_id JOIN teachers d ON c.teacher_id=d.id ORDER BY d.name,d.surname;
+
+6:SELECT d.name,d.surname FROM departments z JOIN degrees a ON a.department_id=z.id JOIN courses b ON a.id = b.degree_id JOIN course_teacher c ON b.id=c.course_id JOIN teachers d ON c.teacher_id=d.id WHERE z.name LIKE '%Matematica%';
+
+7:
